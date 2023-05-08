@@ -1,4 +1,5 @@
 import { WORDS } from "./words.js";
+
 const NUMBER_OF_GUESSES = 6;
 let guessesRemaining = NUMBER_OF_GUESSES;
 let currentGuess = []; // array of letters in current guess
@@ -8,19 +9,21 @@ console.log(rightGuessString);
 
 function initBoard() {
   let board = document.getElementById("game-board");
-  row.className = "letter-row"; // this will be the class name for all rows
+
   for (let i = 0; i < NUMBER_OF_GUESSES; i++) {
-    // loop through the number of guesses
+    console.log("first loop");
     let row = document.createElement("div");
     row.className = "letter-row";
 
     for (let j = 0; j < 5; j++) {
-      // loop through the number of boxes
-      let box = document.createElement("div"); // create a div for each box
-      box.className = "letter-box"; // create a div for each box
-      row.appendChild(box); // append box to row
+      console.log("second loop");
+      let box = document.createElement("div");
+      box.className = "letter-box";
+      row.appendChild(box);
     }
+    //what is the problem here?
+    board.appendChild(row);
   }
 }
-
+console.log("done");
 initBoard();
