@@ -22,7 +22,7 @@ function initBoard() {
       box.className = "letter-box";
       row.appendChild(box);
     }
-    //what is the problem here?
+
     board.appendChild(row);
   }
 }
