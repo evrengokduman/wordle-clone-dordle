@@ -38,13 +38,13 @@ document.addEventListener("keyup", (e) => {
   let pressedKey = String(e.key);
   if (pressedKey === "Backspace" && nextLetter !== 0) {
     //if you press backspace, it's gonna delete the letter
-    deleteLetter();
+    deleteLetter(); //define here, code later
     return;
   }
 
   if (pressedKey === "Enter") {
     //if you press enter, it's gonna check the guess
-    checkGuess();
+    checkGuess(); //define here, code later
     return;
   }
 
@@ -52,7 +52,7 @@ document.addEventListener("keyup", (e) => {
   if (!found || found.length > 1) {
     return; //if you press a key that's not a letter, it's gonna return
   } else {
-    insertLetter(pressedKey); //if you press a letter, it's gonna insert the letter
+    insertLetter(pressedKey); //if you press a letter, it's gonna insert the letter define here code later
   }
 });
 
@@ -68,5 +68,9 @@ function insertLetter(pressedKey) {
   box.textContent = pressedKey;
   box.classList.add("filled-box");
   currentGuess.push(pressedKey);
-  nextLetter += 1;
+  nextLetter++;
+}
+
+deleteLetter () {
+  let row = document.getElementsByClassName("letter-row")[6 - guessesRemaining]
 }
