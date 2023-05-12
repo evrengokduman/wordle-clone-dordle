@@ -99,9 +99,21 @@ function checkGuess() {
   }
 
   for (let i = 0; i < 5; i++) {
+    //this loop is gonna check the guess
     let letterColor = "";
     let box = row.children[i];
     let letter = currentGuess[i];
-    let letterPosition = rightGuess.indexOf(currentGuess[i]);
+    let letterPosition = rightGuess.indexOf(currentGuess[i]); //this is gonna check if the letter is in the right position
+    if (letterPosition === -1) {
+      letterColor: "grey";
+    } else {
+      //if the letter is in the right position, it's gonna be green, if it's in the wrong position, it's gonna be yellow
+      if (currentGuess[i] === rightGuess[i]) {
+        letterColor = "green";
+      } else {
+        letterColor = "yellow";
+      }
+      rightGuess[letterPosition] = null; //this is gonna make sure that the letter is not gonna be checked again
+    }
   }
 }
