@@ -72,6 +72,36 @@ function insertLetter(pressedKey) {
 }
 
 function deleteLetter() {
+  let row = document.getElementsByClassName("letter-row")[6 - guessesRemaining]; //this is the row that we're on
+  let box = row.children[nextLetter - 1]; //this is the box that we're on
+  box.textContent = "";
+  box.classList.remove("filled-box");
+  currentGuess.pop();
+  nextLetter--;
+}
+//this function is gonna check the guess
+function checkGuess() {
   let row = document.getElementsByClassName("letter-row")[6 - guessesRemaining];
-  let box = row.children[nextLetter - 1];
+  let guessString = "";
+  let rightGuess = Array.from(rightGuessString); //turns the string into an array
+
+  for (const val of currentGuess) {
+    //for each value in currentGuess
+    guessString += val;
+  }
+  if (guessString.length !== 5) {
+    alert("Not enough letters!");
+    return;
+  }
+  if (!WORDS.includes(guessString)) {
+    alert("Word not in list!");
+    return;
+  }
+
+  for (let i = 0; i < 5; i++) {
+    let letterColor = "";
+    let box = row.children[i];
+    let letter = currentGuess[i];
+    let letterPosition = rightGuess.indexOf(currentGuess[i]);
+  }
 }
