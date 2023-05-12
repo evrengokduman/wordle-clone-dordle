@@ -71,6 +71,7 @@ function insertLetter(pressedKey) {
   nextLetter++;
 }
 
-deleteLetter () {
-  let row = document.getElementsByClassName("letter-row")[6 - guessesRemaining]
+function deleteLetter() {
+  let row = document.getElementsByClassName("letter-row")[6 - guessesRemaining];
+  let box = row.children[nextLetter - 1];
 }
