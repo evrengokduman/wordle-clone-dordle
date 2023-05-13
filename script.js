@@ -115,5 +115,25 @@ function checkGuess() {
       }
       rightGuess[letterPosition] = null; //this is gonna make sure that the letter is not gonna be checked again
     }
+    let delay = 250 * i;
+    setTimeout(() => {
+      //this is gonna change the color of the box
+      box.style.backgroundColor = letterColor;
+      shadeKeyBoard(letter, letterColor);
+    }, delay); //this is gonna change the color of the keyboard
+  }
+
+  if (guessString === rightGuessString) {
+    alert("You win!");
+    guessesRemaining = 0;
+    return;
+  } else {
+    guessesRemaining--; // this is gonna decrease the guesses remaining
+    currentGuess = []; //this is gonna reset the guess
+    nextLetter = 0; //this is gonna reset the guess
+    if (guessesRemaining === 0) {
+      alert("You've run out of guesses! Game over!");
+      alert(`The right word was: "${rightGuessString}"`);
+    }
   }
 }
