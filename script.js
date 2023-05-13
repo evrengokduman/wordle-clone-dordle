@@ -80,6 +80,10 @@ function deleteLetter() {
   nextLetter--;
 }
 //this function is gonna check the guess
+/* Makes sure the guess is 5 letters
+Makes sure the guess is a valid list
+Checks each letter of the word and shades them
+Tells the user about the end of the game */
 function checkGuess() {
   let row = document.getElementsByClassName("letter-row")[6 - guessesRemaining];
   let guessString = "";
@@ -143,7 +147,33 @@ function checkGuess() {
       if (elem.textContent === letter) {
         //this is gonna check if the letter is in the keyboard
         let oldColor = elem.style.backgroundColor; //does it have a color?
+        if (oldColor === "green") {
+          return;
+        }
+        if (oldColor === "yellow" && color !== "green") {
+          return;
+        }
+        elem.style.backgroundColor = color;
+        break;
       }
     }
   }
 }
+
+document.getElementById("keyboard-cont").addEventListener("click", (e) => {
+  const target = e.target;
+
+  if (!target.classList.contains("keyboard-button")) {
+    return;
+  }
+  let key = target.textContent;
+  if (key === "Del") {
+    key = "Backspace";
+  }
+
+  //for everything else
+
+  document.dispatchEvent(new KeyboardEvent("keyup", { key: key })); //this is gonna dispatch a keyup event
+
+  //we are creating a keyup event, mimicking a keyup event
+});
