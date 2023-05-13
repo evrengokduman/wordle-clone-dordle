@@ -105,7 +105,8 @@ function checkGuess() {
     let letter = currentGuess[i];
     let letterPosition = rightGuess.indexOf(currentGuess[i]); //this is gonna check if the letter is in the right position
     if (letterPosition === -1) {
-      letterColor: "grey";
+      //how to fix this?
+      letterColor = "grey";
     } else {
       //if the letter is in the right position, it's gonna be green, if it's in the wrong position, it's gonna be yellow
       if (currentGuess[i] === rightGuess[i]) {
@@ -134,6 +135,15 @@ function checkGuess() {
     if (guessesRemaining === 0) {
       alert("You've run out of guesses! Game over!");
       alert(`The right word was: "${rightGuessString}"`);
+    }
+  }
+  function shadeKeyBoard(letter, color) {
+    //this is gonna change the color of the keyboard
+    for (const elem of document.getElementsByClassName("keyboard-button")) {
+      if (elem.textContent === letter) {
+        //this is gonna check if the letter is in the keyboard
+        let oldColor = elem.style.backgroundColor; //does it have a color?
+      }
     }
   }
 }
